@@ -29,6 +29,8 @@ public class CrimeActivity extends FragmentActivity {
         //Added, this method will return whatever is in it.
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
+        Fragment fragment2 = fm.findFragmentById(R.id.fragment_container2);
+
         //Check to see if the fragment is null. On starting the app, it
         //will be. But once we add a fragment to the frame, it will not be.
         if (fragment == null) {
@@ -41,6 +43,13 @@ public class CrimeActivity extends FragmentActivity {
             //changes.
             fm.beginTransaction()
                     .add(R.id.fragment_container,fragment)
+                    .commit();
+        }
+
+        if(fragment2 == null) {
+            fragment2 = new CrimeFragment();
+            fm.beginTransaction()
+                    .add(R.id.fragment_container2, fragment2)
                     .commit();
         }
     }
